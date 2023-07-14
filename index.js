@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 const userRouter = require('./routes/User')
+const manageRouter = require('./routes/Manage')
 const cors = require('cors')
 
 const app = express()
@@ -10,6 +11,7 @@ app.use(cors({ origin: 'http://localhost:3000', credentials: true }))
 app.use(cookieParser())
 app.use(express.json())
 app.use('/user',userRouter)
+app.use('/manage',manageRouter)
 
 
 const connect_to_db_and_start_server = async () => {
